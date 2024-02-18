@@ -1,0 +1,22 @@
+apiVersion: user.keycloak.crossplane.io/v1alpha1
+kind: User
+metadata:
+  name: admin
+spec:
+  forProvider:
+    email: admin@vernal.dev
+    emailVerified: true
+    enabled: true
+    firstName: Vernal
+    lastName: Admin
+    initialPassword:
+    - temporary: false
+      valueSecretRef:
+        key: password
+        name: admin-user-secret
+        namespace: keycloak
+    realmIdRef:
+      name: vernal
+    username: admin
+  providerConfigRef:
+    name: keycloak-config

@@ -1,0 +1,27 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: https-redirect
+  namespace: istio-ingress
+spec:
+  parentRefs:
+  - name: vernal
+    namespace: istio-ingress
+    sectionName: http-local-lan-vernal-dev
+  - name: vernal
+    namespace: istio-ingress
+    sectionName: http-wildcard-local-lan-vernal-dev
+  hostnames:
+  - local.lan.vernal.dev
+  - "*.local.lan.vernal.dev"
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    filters:
+    - type: RequestRedirect
+      requestRedirect:
+        scheme: https
+        statusCode: 301
+        port: 443

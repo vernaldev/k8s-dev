@@ -1,0 +1,55 @@
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: vernal
+servers: 3
+agents: 5
+kubeAPI:
+  host: k8s.local.lan.vernal.dev
+  hostIP: 0.0.0.0
+  hostPort: "6443"
+image: rancher/k3s:v1.28.6-k3s1
+network: vernal
+token: k3s-vernal-not-for-production
+volumes:
+- volume: $PWD/storage/k3s/:/var/lib/rancher/k3s/storage/
+  nodeFilters:
+  - all
+ports:
+- port: 0.0.0.0:80:80
+  nodeFilters:
+  - loadbalancer
+- port: 0.0.0.0:443:443
+  nodeFilters:
+  - loadbalancer
+env: []
+registries:
+  create:
+    name: vcr.local.lan.vernal.dev
+    host: 0.0.0.0
+    hostPort: "5000"
+    volumes:
+    - $PWD/storage/vcr/:/var/lib/registry/
+hostAliases: []
+options:
+  k3d:
+    wait: true
+    timeout: 300s
+    disableLoadbalancer: false
+    disableImageVolume: false
+    disableRollback: false
+  k3s:
+    extraArgs:
+    - arg: --disable=traefik
+      nodeFilters:
+      - server:*
+    - arg: --disable-helm-controller
+      nodeFilters:
+      - server:*
+    - arg: --tls-san=k8s.local.lan.vernal.dev
+      nodeFilters:
+      - server:*
+    nodeLabels: []
+  kubeconfig:
+    updateDefaultKubeconfig: true
+    switchCurrentContext: true

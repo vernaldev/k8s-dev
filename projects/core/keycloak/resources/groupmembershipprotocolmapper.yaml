@@ -1,0 +1,18 @@
+apiVersion: openidgroup.keycloak.crossplane.io/v1alpha1
+kind: GroupMembershipProtocolMapper
+metadata:
+  name: groups
+spec:
+  forProvider:
+    addToAccessToken: true
+    addToIdToken: true
+    addToUserinfo: true
+    claimName: groups
+    clientScopeIdRef:
+      name: groups
+    fullPath: false
+    name: groups
+    realmIdRef:
+      name: vernal
+  providerConfigRef:
+    name: keycloak-config

@@ -1,0 +1,33 @@
+apiVersion: openidclient.keycloak.crossplane.io/v1alpha1
+kind: Client
+metadata:
+  name: argocd
+spec:
+  forProvider:
+    name: ArgoCD Client
+    clientId: argocd
+    accessType: CONFIDENTIAL
+    loginTheme: keycloak
+    rootUrl: https://argocd.local.lan.vernal.dev
+    baseUrl: https://argocd.local.lan.vernal.dev/applications
+    adminUrl: https://argocd.local.lan.vernal.dev
+    enabled: true
+    standardFlowEnabled: true
+    directAccessGrantsEnabled: true
+    realmIdRef:
+      name: vernal
+    validRedirectUris:
+    - https://argocd.local.lan.vernal.dev/auth/callback
+    validPostLogoutRedirectUris:
+    - +
+    webOrigins:
+    - https://argocd.local.lan.vernal.dev
+  providerConfigRef:
+    name: keycloak-config
+  publishConnectionDetailsTo:
+    name: argocd-keycloak-secret
+    configRef:
+      name: argocd-store-config
+    metadata:
+      labels:
+        app.kubernetes.io/part-of: argocd

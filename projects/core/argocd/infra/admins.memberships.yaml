@@ -1,0 +1,14 @@
+apiVersion: group.keycloak.crossplane.io/v1alpha1
+kind: Memberships
+metadata:
+  name: argocd-admins
+spec:
+  forProvider:
+    groupIdRef:
+      name: argocd-admins
+    members:
+    - admin
+    realmIdRef:
+      name: vernal
+  providerConfigRef:
+    name: keycloak-config

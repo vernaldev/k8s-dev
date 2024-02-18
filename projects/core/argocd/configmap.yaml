@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-cm
+data:
+  admin.enabled: "false"
+  resource.exclusions: |-
+    - apiGroups:
+      - velero.io
+      kinds:
+      - Backup
+      clusters:
+      - "*"
+  statusbadge.enabled: "true"
+  kustomize.buildOptions: --enable-helm
+  url: https://argocd.local.lan.vernal.dev
+  oidc.config: |-
+    name: Keycloak
+    issuer: https://sso.local.lan.vernal.dev/realms/vernal
+    clientID: argocd
+    clientSecret: $argocd-keycloak-secret:attribute.client_secret
+    requestedScopes:
+    - openid
+    - profile
+    - email
+    - groups
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/name: argocd-cmd-params-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-cmd-params-cm
+data:
+  server.insecure: "true"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/name: argocd-rbac-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-rbac-cm
+data:
+  policy.default: role:default
+  policy.csv: |
+    p, role:default, *, *, */*, deny
+    p, role:admin, *, *, */*, allow
+    g, argocd-admins, role:admin
+  scopes: "[groups, email]"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-image-updater-config
+data:
+  git.commit-message-template: |
+    Build: automated update of {{ .AppName }}.
+
+    {{ range .AppChanges -}}
+    - Updates {{ .Image }} from '{{ .OldTag }}' to '{{ .NewTag }}'
+    {{ end -}}

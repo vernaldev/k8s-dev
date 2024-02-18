@@ -1,0 +1,19 @@
+apiVersion: pkg.crossplane.io/v1beta1
+kind: DeploymentRuntimeConfig
+metadata:
+  name: keycloak-runtime-config
+spec:
+  deploymentTemplate:
+    spec:
+      selector:
+        matchLabels:
+          crossplane.vernal.dev/runtime: keycloak
+      template:
+        metadata:
+          labels:
+            crossplane.vernal.dev/runtime: keycloak
+        spec:
+          containers:
+          - name: package-runtime
+            args:
+            - --enable-external-secret-stores

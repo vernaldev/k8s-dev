@@ -1,0 +1,15 @@
+# Local K3s storage
+storage/
+
+# Secrets
+secret.yaml
+*.secret.yaml
+!/**/localized-*/charts/**/secret.yaml
+!/**/localized-*/charts/**/*.secret.yaml
+
+# Secret exceptions
+!dev-cluster.secret.yaml
+
+# Non-localized helm charts
+/**/charts/
+!/**/localized-*/**/charts/

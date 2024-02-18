@@ -1,0 +1,12 @@
+apiVersion: realm.keycloak.crossplane.io/v1alpha1
+kind: Realm
+metadata:
+  name: vernal
+spec:
+  forProvider:
+    realm: vernal
+    displayName: Vernal - SSO
+    displayNameHtml: <div class="kc-logo-text"><span>Vernal - SSO</span></div>
+    enabled: true
+  providerConfigRef:
+    name: keycloak-config

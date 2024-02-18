@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-secure
+spec:
+  selector:
+    app: keycloak-secure
+  ports:
+  - port: 443
