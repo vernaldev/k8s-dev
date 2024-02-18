@@ -1,11 +1,3 @@
-apiVersion: secrets.crossplane.io/v1alpha1
-kind: StoreConfig
-metadata:
-  name: argocd-store-config
-spec:
-  defaultScope: argocd
-  type: Kubernetes
----
 apiVersion: keycloak.crossplane.io/v1alpha1
 kind: StoreConfig
 metadata:
