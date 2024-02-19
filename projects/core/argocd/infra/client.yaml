@@ -18,6 +18,7 @@ spec:
       name: vernal
     validRedirectUris:
     - https://argocd.local.lan.vernal.dev/auth/callback
+    - http://localhost:8085/auth/callback
     validPostLogoutRedirectUris:
     - +
     webOrigins:
