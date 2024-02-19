@@ -7,11 +7,11 @@ spec:
     spec:
       selector:
         matchLabels:
-          crossplane.vernal.dev/runtime: keycloak
+          crossplane.vernal.dev/package: keycloak
       template:
         metadata:
           labels:
-            crossplane.vernal.dev/runtime: keycloak
+            crossplane.vernal.dev/package: keycloak
         spec:
           containers:
           - name: package-runtime

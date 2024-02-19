@@ -13,3 +13,6 @@ secret.yaml
 # Non-localized helm charts
 /**/charts/
 !/**/localized-*/**/charts/
+
+# Visual Studio Code Configuration
+.vscode/

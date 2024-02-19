@@ -3,13 +3,9 @@ kind: Kustomization
 
 resources:
 - ./internal
-- ./operator
+- ./keycloak
+- ./keycloak-config-cli
+- ./postgres
+- ./provider
 - ./resources
-- ./crossplane.sealedsecret.yaml
-- ./httproute.yaml
-- ./keycloak.providerconfig.yaml
-- ./keycloak.yaml
-- ./master.realm.yaml
 - ./namespace.yaml
-- ./postgres.sealedsecret.yaml
-- ./postgres.yaml

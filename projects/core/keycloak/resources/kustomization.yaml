@@ -6,4 +6,5 @@ resources:
 - ./admin.user.yaml
 - ./groupmembershipprotocolmapper.yaml
 - ./groups.clientscope.yaml
+- ./providerconfig.yaml
 - ./vernal.realm.yaml

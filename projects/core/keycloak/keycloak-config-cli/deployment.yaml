@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak-config-cli
+  labels:
+    app: keycloak-config-cli
+spec:
+  selector:
+    matchLabels:
+      app: keycloak-config-cli
+  template:
+    metadata:
+      labels:
+        app: keycloak-config-cli
+    spec:
+      containers:
+      - name: keycloak-config-cli
+        image: adorsys/keycloak-config-cli:latest-23.0.1
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: KEYCLOAK_USER
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-secret
+              key: username
+        - name: KEYCLOAK_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-secret
+              key: password
+        - name: CROSSPLANE_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-crossplane-secret
+              key: username
+        - name: CROSSPLANE_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: keycloak-crossplane-secret
+              key: password
+        - name: KEYCLOAK_URL
+          value: http://keycloak.keycloak.svc.cluster.local
+        - name: KEYCLOAK_AVAILABILITYCHECK_ENABLED
+          value: "true"
+        - name: KEYCLOAK_AVAILABILITYCHECK_TIMEOUT
+          value: 10s
+        - name: IMPORT_FILES_LOCATIONS
+          value: /config/*
+        - name: IMPORT_VARSUBSTITUTION_ENABLED
+          value: "true"
+        volumeMounts:
+        - name: keycloak-config
+          mountPath: /config
+          readOnly: true
+      volumes:
+      - name: keycloak-config
+        secret:
+          secretName: keycloak-master-realm-secret
