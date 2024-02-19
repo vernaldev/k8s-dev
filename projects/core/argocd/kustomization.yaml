@@ -12,6 +12,7 @@ resources:
 - ./httproute.yaml
 - ./k8s-dev.sealedsecret.yaml
 - ./namespace.yaml
+- ./root.appproject.yaml
 - ./service.yaml
 
 patchesStrategicMerge:
