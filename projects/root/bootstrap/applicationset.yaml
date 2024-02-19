@@ -20,7 +20,8 @@ spec:
             project: '{{ index .path.segments 1 }}'
       - list:
           elements:
-          - autoSyncExclusions: []
+          - autoSyncExclusions:
+            - cert-manager
   template:
     metadata:
       name: '{{ .values.app }}'
@@ -38,7 +39,7 @@ spec:
         syncOptions:
         - ServerSideApply=true
   templatePatch: |
-    {{- if and (ne .values.project "core") (not (has .values.app .autoSyncExclusions)) }}
+    {{- if not (has .values.app .autoSyncExclusions) }}
     spec:
       syncPolicy:
         automated:
