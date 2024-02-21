@@ -28,7 +28,7 @@ apply projects/core/reflector
 # apply projects/core/cert-manager
 
 kubectl apply -f projects/core/cert-manager/namespace.yaml
-kubectl apply -f local-lan-vernal-dev-tls.sealedsecret.yaml
+kubectl apply -f projects/core/cert-manager/local-lan-vernal-dev-tls.sealedsecret.yaml
 
 apply projects/core/crossplane
 wait -l app=crossplane -n crossplane-system
