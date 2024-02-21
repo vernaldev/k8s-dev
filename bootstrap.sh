@@ -51,6 +51,7 @@ apply projects/core/keycloak/resources
 kubectl wait --for=condition=Ready=True --timeout=5m realms.realm.keycloak.crossplane.io/vernal
 apply projects/core/keycloak/internal
 
+kubectl apply -f projects/core/argocd/namespace.yaml
 apply projects/core/argocd/infra
 kubectl wait --for=condition=Ready=True --timeout=10m clients.openidclient.keycloak.crossplane.io/argocd
 apply projects/core/argocd 2
