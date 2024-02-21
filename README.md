@@ -37,13 +37,31 @@ The following alerting, monitoring, and observability services will be coming so
 - Promtail
 
 ## Requirements
-The following tools below are required in order to deploy a local development cluster.
+The following tools below are required to deploy a local development cluster.
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [K3d](https://k3d.io/v5.6.0/#installation)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Kustomize](https://kubectl.docs.kubernetes.io/installation/kustomize/)
 - [Helm](https://helm.sh/docs/intro/install/)
+
+Additionally, secret keys are necessary in order to decrypt the sensitive values that are stored in this repository. Paste the contents of the provided secret (*Ask Dennis*) into a file named `vernal-keys.secret.yaml` in the root of this repository.
+
+It should look something like this:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  labels:
+    sealedsecrets.bitnami.com/sealed-secrets-key: active
+  name: vernal-keys
+  namespace: kube-system
+data:
+  tls.crt: ...
+  tls.key: ...
+type: kubernetes.io/tls
+```
 
 ## Deployment
 To deploy and bootstrap a local development cluster, run the provided script.
@@ -54,7 +72,9 @@ To deploy and bootstrap a local development cluster, run the provided script.
 *Note: This process may take upwards of 15 minutes to complete.*
 
 ## Post Deployment
-Once the deployment and bootstrapping process is complete, several services should be accessible from the browser.
+Once the deployment and bootstrapping process is complete, it is best practice to permanently delete the `vernal-keys.secret.yaml` file in order to prevent any security issues.
+
+Several services should now be accessible from the browser.
 
 | Service  | URL                                 |
 |----------|-------------------------------------|
