@@ -18,13 +18,23 @@ This local development clusters comes pre-configured and bundled with:
 - CoreDNS
 - Crossplane
 - Gateway API
-- Grafana (coming soon)
 - Istio
 - Keycloak
-- Kiali (coming soon)
 - Reflector
 - Sealed Secrets
 - Whoami
+
+The following alerting, monitoring, and observability services will be coming soon:
+- Alert Manager
+- Blackbox Exporter
+- Grafana
+- Kiali
+- Kube State Metrics
+- Kube Watch
+- Loki
+- Node Exporter
+- Prometheus
+- Promtail
 
 ## Requirements
 The following tools below are required in order to deploy a local development cluster.
