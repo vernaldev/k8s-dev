@@ -8,6 +8,8 @@ function wait {
   kubectl wait --for=condition=ready pod --timeout=5m "$@"
 }
 
+[ -f ./vernal-keys.secret.yaml ] || { >&2 echo 'error: ./vernal-keys.secret.yaml not found'; exit 1; }
+
 k3d cluster create --config ./k3dcluster.yaml
 
 kubectl apply -f vernal-keys.secret.yaml
