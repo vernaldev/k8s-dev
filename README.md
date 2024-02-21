@@ -10,7 +10,7 @@
 </div>
 
 # Quick Start
-This local development clusters comes pre-configured and bundled with:
+This local development cluster comes pre-configured and bundled with:
 
 - Argo CD
 - Cert-Manager
