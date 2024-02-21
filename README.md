@@ -18,8 +18,10 @@ This local development clusters comes pre-configured and bundled with:
 - CoreDNS
 - Crossplane
 - Gateway API
+- Grafana (coming soon)
 - Istio
 - Keycloak
+- Kiali (coming soon)
 - Reflector
 - Sealed Secrets
 - Whoami
@@ -40,3 +42,14 @@ To deploy and bootstrap a local development cluster, run the provided script.
 ./bootstrap.sh
 ```
 *Note: This process may take upwards of 15 minutes to complete.*
+
+## Post Deployment
+Once the deployment and bootstrapping process is complete, several services should be accessible from the browser.
+
+| Service  | URL                                 |
+|----------|-------------------------------------|
+| Argo CD  | https://argocd.local.lan.vernal.dev |
+| Grafana  | (coming soon)                       |
+| Keycloak | https://sso.local.lan.vernal.dev    |
+| Kiali    | (coming soon)                       |
+| Whoami   | https://whoami.local.lan.vernal.dev |
