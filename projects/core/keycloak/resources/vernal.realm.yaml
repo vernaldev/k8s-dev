@@ -7,14 +7,14 @@ spec:
     realm: vernal
     resetPasswordAllowed: true
     smtpServer:
-      - auth:
-        - passwordSecretRef:
-            key: mspggxgbvratdxjx
-            name: vernal
-            namespace: keycloak
-        from: vernal.developer@gmail.com
-        host: smtp.gmail.com
-        port: "587"
+    - auth:
+      - passwordSecretRef:
+          key: password
+          name: smtp-cred
+          namespace: keycloak
+      from: vernal.developer@gmail.com
+      host: smtp.gmail.com
+      port: "587"
     displayName: Vernal - SSO
     displayNameHtml: <div class="kc-logo-text"><span>Vernal - SSO</span></div>
     enabled: true

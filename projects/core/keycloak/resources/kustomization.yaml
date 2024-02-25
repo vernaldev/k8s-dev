@@ -7,4 +7,5 @@ resources:
 - ./groupmembershipprotocolmapper.yaml
 - ./groups.clientscope.yaml
 - ./providerconfig.yaml
+- ./smtp.sealedsecret.yaml
 - ./vernal.realm.yaml
