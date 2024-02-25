@@ -12,6 +12,7 @@ spec:
           key: password
           name: smtp-cred
           namespace: keycloak
+        username: vernal.developer@gmail.com
       from: vernal.developer@gmail.com
       host: smtp.gmail.com
       port: "587"
