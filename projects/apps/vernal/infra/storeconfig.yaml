@@ -1,0 +1,7 @@
+apiVersion: keycloak.crossplane.io/v1alpha1
+kind: StoreConfig
+metadata:
+  name: vernal-store-config
+spec:
+  defaultScope: vernal
+  type: Kubernetes

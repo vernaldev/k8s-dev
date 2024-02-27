@@ -1,0 +1,30 @@
+apiVersion: openidclient.keycloak.crossplane.io/v1alpha1
+kind: Client
+metadata:
+  name: vernal
+spec:
+  forProvider:
+    name: Vernal Client
+    clientId: vernal
+    accessType: CONFIDENTIAL
+    loginTheme: keycloak
+    rootUrl: https://argocd.local.lan.vernal.dev
+    baseUrl: https://argocd.local.lan.vernal.dev/applications
+    adminUrl: https://argocd.local.lan.vernal.dev
+    enabled: true
+    standardFlowEnabled: true
+    directAccessGrantsEnabled: true
+    realmIdRef:
+      name: vernal
+    validRedirectUris:
+    - http://localhost:7007/api/auth/keycloak/handler/frame
+    validPostLogoutRedirectUris:
+    - +
+    webOrigins:
+    - http://localhost:7007
+  providerConfigRef:
+    name: keycloak-config
+  publishConnectionDetailsTo:
+    name: vernal-keycloak-secret
+    configRef:
+      name: vernal-store-config

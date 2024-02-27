@@ -1,0 +1,17 @@
+apiVersion: openidclient.keycloak.crossplane.io/v1alpha1
+kind: ClientDefaultScopes
+metadata:
+  name: vernal
+spec:
+  forProvider:
+    clientIdRef:
+      name: vernal
+    defaultScopes:
+    - openid
+    - profile
+    - email
+    - groups
+    realmIdRef:
+      name: vernal
+  providerConfigRef:
+    name: keycloak-config
