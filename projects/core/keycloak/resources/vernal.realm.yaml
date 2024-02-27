@@ -12,10 +12,10 @@ spec:
           key: password
           name: smtp-cred
           namespace: keycloak
-        username: vernal.developer
+        username: vernal.developer@gmail.com
       from: vernal.developer@gmail.com
       host: smtp.gmail.com
-      port: "587"
+      port: "465"
       starttls: true
     displayName: Vernal - SSO
     displayNameHtml: <div class="kc-logo-text"><span>Vernal - SSO</span></div>
