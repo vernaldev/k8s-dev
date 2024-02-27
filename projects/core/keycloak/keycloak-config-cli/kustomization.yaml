@@ -4,5 +4,5 @@ kind: Kustomization
 namespace: keycloak
 resources:
 - ./crossplane.sealedsecret.yaml
-- ./deployment.yaml
+- ./job.yaml
 - ./master-realm.sealedsecret.yaml

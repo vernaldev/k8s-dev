@@ -1,18 +1,14 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
   name: keycloak-config-cli
   labels:
     app: keycloak-config-cli
 spec:
-  selector:
-    matchLabels:
-      app: keycloak-config-cli
+  backoffLimit: 5
   template:
-    metadata:
-      labels:
-        app: keycloak-config-cli
     spec:
+      restartPolicy: OnFailure
       containers:
       - name: keycloak-config-cli
         image: adorsys/keycloak-config-cli:latest-23.0.1
