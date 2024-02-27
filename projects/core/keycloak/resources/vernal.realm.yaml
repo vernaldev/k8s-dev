@@ -15,7 +15,7 @@ spec:
         username: vernal.developer@gmail.com
       from: vernal.developer@gmail.com
       host: smtp.gmail.com
-      port: "465"
+      port: "587"
       starttls: true
     displayName: Vernal - SSO
     displayNameHtml: <div class="kc-logo-text"><span>Vernal - SSO</span></div>
