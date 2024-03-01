@@ -27,7 +27,7 @@ registries:
   create:
     name: vcr.local.lan.vernal.dev
     host: 0.0.0.0
-    hostPort: "5000"
+    hostPort: "5555"
     volumes:
     - $PWD/storage/vcr/:/var/lib/registry/
 hostAliases: []
