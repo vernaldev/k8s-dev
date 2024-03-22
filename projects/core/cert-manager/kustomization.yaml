@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
 - https://github.com/cert-manager/cert-manager/releases/download/v1.14.1/cert-manager.yaml
+- ./local-lan-vernal-dev-tls.sealedsecret.yaml
 # - ./certificates
 # - ./issuers
 # - ./cloudflare.sealedsecret.yaml
