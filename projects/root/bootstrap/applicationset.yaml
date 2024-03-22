@@ -20,8 +20,7 @@ spec:
             project: '{{ index .path.segments 1 }}'
       - list:
           elements:
-          - autoSyncExclusions:
-            - cert-manager
+          - autoSyncExclusions: []
   template:
     metadata:
       name: '{{ .values.app }}'
