@@ -1,0 +1,10 @@
+'0':
+  name: backend
+  image: ghcr.io/vernaldev/test-app_backend:latest
+  containerPort: 4000
+'1':
+  name: frontend
+  image: ghcr.io/vernaldev/test-app_frontend:latest
+  containerPort: 3000
+apiVersion: vernal.dev/v1alpha1
+kind: Application
