@@ -19,8 +19,8 @@ spec:
     minReplicas: 1
     maxReplicas: 3
     containerPort: 3000
-  - name: postgres
-    image: postgres:16
+  - name: ubuntu
+    image: ubuntu:latest
     minReplicas: 1
     maxReplicas: 3
     containerPort: 5432
