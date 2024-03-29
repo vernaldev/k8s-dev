@@ -1,0 +1,17 @@
+apiVersion: vernal.dev/v1alpha1
+kind: Application
+metadata:
+  name: hello
+spec:
+  owner: group-default-guests
+  repo:
+    url: https://github.com/vernaldev/vernal
+    revision: main
+    path: /
+  components:
+    - name: backend
+      image: ghcr.io/vernaldev/cool-repo_backend:latest
+      containerPort: 4000
+    - name: frontend
+      image: ghcr.io/vernaldev/cool-repo_frontend:latest
+      containerPort: 3000
