@@ -1,0 +1,23 @@
+apiVersion: vernal.dev/v1alpha1
+kind: Application
+metadata:
+  name: sample
+spec:
+  owner: group-default-guests
+  repo:
+    url: https://github.com/vernaldev/vernal
+    revision: main
+    path: /
+  components:
+    - name: backend
+      image: ghcr.io/vernaldev/sample-application_backend:latest
+      containerPort: 3001
+    - name: frontend
+      image: ghcr.io/vernaldev/sample-application_frontend:latest
+      containerPort: 3000
+  postgres:
+    enabled: true
+    urlEnvVar: DATABASE_URL
+  redis:
+    enabled: true
+    urlEnvVar: REDIS_URL
