@@ -5,6 +5,8 @@ resources:
 - ./https-redirect.httproute.yaml
 - ./local-lan-vernal-dev.gateway.yaml
 - ./namespace.yaml
+- ./podmonitor.yaml
+- ./servicemonitor.yaml
 
 helmCharts:
 - includeCRDs: true
