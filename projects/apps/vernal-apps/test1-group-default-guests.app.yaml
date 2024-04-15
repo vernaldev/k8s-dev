@@ -18,7 +18,7 @@ spec:
       image: ghcr.io/vernaletest/test1_frontend:latest
       minReplicas: 1
       maxReplicas: 1
-      containerPort: 3000
+      containerPort: 6969
   postgres:
     enabled: true
     urlEnvVar: test1
