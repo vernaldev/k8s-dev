@@ -21,7 +21,7 @@ spec:
       containerPort: 6969
   postgres:
     enabled: true
-    urlEnvVar: YEAH I DID ITTTTT
+    urlEnvVar: YEAHHH
   redis:
     enabled: true
-    urlEnvVar: YEAH I DID ITTT
+    urlEnvVar: YEAH
