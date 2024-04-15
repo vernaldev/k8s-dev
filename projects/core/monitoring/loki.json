@@ -74,6 +74,7 @@
   "templating": {
     "list": [
       {
+        "allValue": "vernal-.+",
         "current": {
           "selected": true,
           "text": [
@@ -134,7 +135,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "",
           "value": ""
         },
@@ -205,6 +206,6 @@
   "timezone": "browser",
   "title": "Loki",
   "uid": "X6mdr1hnz",
-  "version": 4,
+  "version": 2,
   "weekStart": ""
 }
