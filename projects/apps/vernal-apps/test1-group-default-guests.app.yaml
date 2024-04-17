@@ -9,19 +9,19 @@ spec:
     revision: main
     path: /
   components:
-    - name: backend
-      image: ghcr.io/vernaletest/test1_backend:latest
-      minReplicas: 1
-      maxReplicas: 1
-      containerPort: 3001
-    - name: frontend
-      image: ghcr.io/vernaletest/test1_frontend:latest
-      minReplicas: 1
-      maxReplicas: 1
-      containerPort: 6969
+  - name: backend
+    image: ghcr.io/vernaletest/test1_backend:latest
+    minReplicas: 1
+    maxReplicas: 1
+    containerPort: 3001
+  - name: frontend
+    image: ghcr.io/vernaletest/test1_frontend:latest
+    minReplicas: 1
+    maxReplicas: 1
+    containerPort: 6969
   postgres:
     enabled: true
-    urlEnvVar: HAHAA
+    urlEnvVar: API
   redis:
     enabled: true
     urlEnvVar: HAHAA
