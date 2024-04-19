@@ -13,18 +13,20 @@ spec:
   components:
     - name: backend
       image: ghcr.io/vernaldev/testdemo_backend:latest
-      minReplicas: 1
-      maxReplicas: 3
+      minReplicas: 2
+      maxReplicas: 5
       env:
         - name: testbackend
           value: cool
         - name: test2backend
           value: cool2
+        - name: env
+          value: prod
       containerPort: 3001
     - name: frontend
       image: ghcr.io/vernaldev/testdemo_frontend:latest
       minReplicas: 1
-      maxReplicas: 2
+      maxReplicas: 3
       env:
         - name: test
           value: cool
