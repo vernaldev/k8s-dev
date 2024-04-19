@@ -21,7 +21,7 @@ spec:
       containerPort: 3000
   postgres:
     enabled: true
-    urlEnvVar: winners
+    urlEnvVar: winston
   redis:
     enabled: true
-    urlEnvVar: winners
+    urlEnvVar: winston
