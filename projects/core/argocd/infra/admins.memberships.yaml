@@ -7,7 +7,7 @@ spec:
     groupIdRef:
       name: argocd-admins
     members:
-    - admin
+    - admin@vernal.dev
     realmIdRef:
       name: vernal
   providerConfigRef:
