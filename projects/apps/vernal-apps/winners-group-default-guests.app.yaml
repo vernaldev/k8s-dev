@@ -1,7 +1,7 @@
 apiVersion: vernal.dev/v1alpha1
 kind: Application
 metadata:
-  name: winners
+  name: er
 spec:
   owner: group-default-guests
   repo:
