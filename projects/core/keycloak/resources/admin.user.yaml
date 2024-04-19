@@ -17,6 +17,6 @@ spec:
         namespace: keycloak
     realmIdRef:
       name: vernal
-    username: admin
+    username: admin@vernal.dev
   providerConfigRef:
     name: keycloak-config
