@@ -24,4 +24,4 @@ spec:
     urlEnvVar: winners
   redis:
     enabled: true
-    urlEnvVar: winners
+    urlEnvVar: money
