@@ -1,0 +1,39 @@
+apiVersion: vernal.dev/v1alpha1
+kind: Application
+metadata:
+  name: testdemo
+  labels:
+    backstage.io/kubernetes-id: testdemo
+spec:
+  owner: group-default-guests
+  repo:
+    url: https://github.com/vernaldev/vernal
+    revision: main
+    path: /
+  components:
+    - name: backend
+      image: ghcr.io/vernaldev/testdemo_backend:latest
+      minReplicas: 1
+      maxReplicas: 3
+      env:
+        - name: testbackend
+          value: cool
+        - name: test2backend
+          value: cool2
+      containerPort: 3001
+    - name: frontend
+      image: ghcr.io/vernaldev/testdemo_frontend:latest
+      minReplicas: 1
+      maxReplicas: 2
+      env:
+        - name: test
+          value: cool
+        - name: test2
+          value: cool2
+      containerPort: 3000
+  postgres:
+    enabled: true
+    urlEnvVar: DATABASE_URL
+  redis:
+    enabled: true
+    urlEnvVar: REDIS_URL
