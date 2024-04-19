@@ -14,7 +14,7 @@ spec:
     - name: backend
       image: ghcr.io/vernaldev/samplesamplesamplesample_backend:latest
       minReplicas: 1
-      maxReplicas: 1
+      maxReplicas: 3
       env:
         - name: test
           value: hi
