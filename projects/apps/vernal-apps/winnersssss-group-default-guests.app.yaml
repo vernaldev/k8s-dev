@@ -1,0 +1,27 @@
+apiVersion: vernal.dev/v1alpha1
+kind: Application
+metadata:
+  name: winnersssss
+spec:
+  owner: group-default-guests
+  repo:
+    url: https://github.com/vernaldev/vernal
+    revision: main
+    path: /
+  components:
+    - name: backend
+      image: ghcr.io/vernaletest/winnersssss_backend:latest
+      minReplicas: 1
+      maxReplicas: 1
+      containerPort: 3001
+    - name: frontend
+      image: ghcr.io/vernaletest/winnersssss_frontend:latest
+      minReplicas: 1
+      maxReplicas: 1
+      containerPort: 3000
+  postgres:
+    enabled: true
+    urlEnvVar: DATABASE_URL
+  redis:
+    enabled: true
+    urlEnvVar: REDIS_URL
