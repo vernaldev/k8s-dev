@@ -21,7 +21,7 @@ spec:
       containerPort: 3000
   postgres:
     enabled: true
-    urlEnvVar: fetest2
+    urlEnvVar: winners
   redis:
     enabled: true
-    urlEnvVar: fetest2
+    urlEnvVar: winners
