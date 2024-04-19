@@ -13,13 +13,13 @@ spec:
   components:
     - name: backend
       image: ghcr.io/vernaldev/test12345_backend:latest
-      minReplicas: 1
-      maxReplicas: 1
+      minReplicas: 2
+      maxReplicas: 5
       containerPort: 3001
     - name: frontend
       image: ghcr.io/vernaldev/test12345_frontend:latest
       minReplicas: 1
-      maxReplicas: 1
+      maxReplicas: 2
       containerPort: 3000
   postgres:
     enabled: true
