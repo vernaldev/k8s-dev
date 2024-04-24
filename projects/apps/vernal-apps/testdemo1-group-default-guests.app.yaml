@@ -13,8 +13,8 @@ spec:
   components:
     - name: backend
       image: ghcr.io/vernaldev/testdemo1_backend:latest
-      minReplicas: 1
-      maxReplicas: 1
+      minReplicas: 2
+      maxReplicas: 5
       env:
         - name: component
           value: backend
