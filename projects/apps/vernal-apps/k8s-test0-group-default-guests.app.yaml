@@ -1,0 +1,38 @@
+apiVersion: vernal.dev/v1alpha1
+kind: Application
+metadata:
+  name: k8s-test0
+  labels:
+    backstage.io/kubernetes-id: k8s-test0
+spec:
+  owner: group-default-guests
+  repo:
+    url: https://github.com/vernaldev/vernal
+    revision: main
+    path: /
+  components:
+    - name: backend
+      image: ghcr.io/vernaldev/k8s-test0_backend:latest
+      minReplicas: 2
+      maxReplicas: 5
+      env:
+        - name: ENV
+          value: production
+        - name: API_KEY
+          value: supersecret
+      containerPort: 3001
+    - name: frontend
+      image: ghcr.io/vernaldev/k8s-test0_frontend:latest
+      minReplicas: 1
+      maxReplicas: 3
+      env:
+        - name: ENV
+          value: production
+        - name: ''
+      containerPort: 3000
+  postgres:
+    enabled: true
+    urlEnvVar: DATABASE_URL
+  redis:
+    enabled: true
+    urlEnvVar: REDIS_URL
